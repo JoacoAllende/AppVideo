@@ -1,7 +1,6 @@
 import React from 'react';
 
-function VideoDetail(props) {
-    const { videoSelected } = props;
+function VideoDetail({ videoSelected }) {
     if (!videoSelected)
         return <div />
     const src = `https://www.youtube.com/embed/${videoSelected.id.videoId}`

@@ -17,12 +17,16 @@ class App extends React.Component {
     }
 
     async onFormSubmit(text) {
-        const response = await youtube.get('/search', {
+        const videos = await youtube.get('/search', {
             q: text
+        }).then(res => res.data.items);
+        this.setState({
+            videos,
+            videoSelected: videos[0]
         })
-        this.setState({ 
-            videos: response.data.items,
-            videoSelected: response.data.items[0]
+        this.setState({
+            videos: videos,
+            videoSelected: videos[0]
         })
     }
 

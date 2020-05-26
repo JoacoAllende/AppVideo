@@ -14,16 +14,19 @@ class VideoList extends React.Component {
 
     render() {
         const { videos } = this.props;
-        const listRendered = videos.map( video => {
-            return (
-                <VideoItem
-                    key={video.id.videoId}
-                    video={video} 
-                    onClick={this.onVideoSelected}
-                />
-            )
-        })
-        return <div className="ui relaxed divided list">{listRendered}</div>
+        return (
+            <div className="ui relaxed divided list">
+                {
+                    videos.map(video => (
+                        <VideoItem
+                            key={video.id.videoId}
+                            video={video}
+                            onClick={this.onVideoSelected}
+                        />
+                    ))
+                }
+            </div>
+        )
     }
 }
 
